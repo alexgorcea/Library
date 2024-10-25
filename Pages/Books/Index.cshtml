@@ -26,7 +26,7 @@
                 @Html.DisplayNameFor(model => model.Book[0].Publisher.PublisherName)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Book[0].Author.LastName)
+                @Html.DisplayNameFor(Model => Model.Book[0].Author)
             </th>
         </tr>
     </thead>
@@ -46,6 +46,7 @@
                 @Html.DisplayFor(modeItem => item.Publisher.PublisherName)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Author.FirstName)
                 @Html.DisplayFor(modelItem => item.Author.LastName)
             </td>
             <td>
