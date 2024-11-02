@@ -14,7 +14,9 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Title)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort">
+                    @Html.DisplayNameFor(model => model.Book[0].Title)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Price)
@@ -26,7 +28,9 @@
                 @Html.DisplayNameFor(model => model.Book[0].Publisher.PublisherName)
             </th>
             <th>
-                @Html.DisplayNameFor(Model => Model.Book[0].Author)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.AuthorSort">
+                    @Html.DisplayNameFor(model => model.Book[0].Author)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(Model => Model.Book[0].BookCategories)
