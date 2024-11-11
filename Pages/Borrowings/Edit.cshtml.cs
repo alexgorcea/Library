@@ -30,14 +30,18 @@ namespace Gorcea_Alexandru_Lab2.Pages.Borrowings
                 return NotFound();
             }
 
-            var borrowing =  await _context.Borrowing.FirstOrDefaultAsync(m => m.ID == id);
+            var borrowing =  await _context.Borrowing
+                 .Include(b => b.Member)
+                .Include(b => b.Book)
+                .FirstOrDefaultAsync(m => m.ID == id);
             if (borrowing == null)
             {
                 return NotFound();
             }
             Borrowing = borrowing;
-           ViewData["BookID"] = new SelectList(_context.Book, "ID", "ID");
-           ViewData["MemberID"] = new SelectList(_context.Set<Member>(), "ID", "ID");
+
+            ViewData["BookID"] = new SelectList(_context.Book, "ID", "Title");
+            ViewData["MemberID"] = new SelectList(_context.Member, "ID", "FullName");
             return Page();
         }
 
